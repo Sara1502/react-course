@@ -1,1 +1,1 @@
-Repositório onde eu aprendo React
+Repositório onde eu aprendo React e faço as atividades da formação de React da DIO.
