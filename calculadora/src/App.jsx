@@ -9,11 +9,15 @@ const App = () => {
   const [firstNumber, setFirstNumber] = useState('0');
   const [operation, setOperation] = useState('');
 
-  const handleOnClear = () => {
+  const handleAllClear = () => {
     setCurrentNumber('0');
     setFirstNumber('0');
     setOperation('');
   }
+
+  const handleOnClear = () => {
+      setCurrentNumber(prev => prev.length > 1 ? prev.slice(0, -1) : '0')
+    }
 
   const handleAddNumber = (number) => {
     setCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`)
@@ -25,8 +29,8 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('+');
     }else {
-      const sum = Number(firstNumber) + Number(currentNumber);
-      setCurrentNumber(String(sum));
+      const result = Number(firstNumber) + Number(currentNumber);
+      setCurrentNumber(String(result));
       setOperation('');
     }
   }
@@ -37,8 +41,44 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('-');
     }else {
-      const sub = Number(firstNumber) - Number(currentNumber);
-      setCurrentNumber(String(sub));
+      const result = Number(firstNumber) - Number(currentNumber);
+      setCurrentNumber(String(result));
+      setOperation('');
+    }
+  }
+
+  const handleTimesNumbers = () => {
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('*');
+    }else {
+      const result = Number(firstNumber) * Number(currentNumber);
+      setCurrentNumber(String(result));
+      setOperation('');
+    }
+  }
+
+  const handleDivideNumbers = () => {
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('/');
+    }else {
+      const result = Number(firstNumber) / Number(currentNumber);
+      setCurrentNumber(String(result));
+      setOperation('');
+    }
+  }
+
+  const handlePorcentageNumbers = () => {
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('%');
+    }else {
+      const result = (Number(currentNumber) * 100) / Number(firstNumber);
+      setCurrentNumber(String(result));
       setOperation('');
     }
   }
@@ -53,6 +93,15 @@ const App = () => {
           case '-':
             handleMinusNumbers();
             break;
+          case '*':
+            handleTimesNumbers();
+            break;
+          case '/':
+            handleDivideNumbers();
+            break;
+          case '%':
+            handlePorcentageNumbers();
+            break;
           default: 
             break;
         }
@@ -65,16 +114,16 @@ const App = () => {
       <Content>
         <Input value={currentNumber}/>  
         <Row>
-          <Button label="C" onClick={handleOnClear}/>
+          <Button label="C" onClick={handleAllClear}/>
           <Button label="<-" onClick={handleOnClear}/>
-          <Button label="%" onClick={() => handleAddNumber('%')}/>
-          <Button label="/" onClick={() => handleAddNumber('/')}/>
+          <Button label="%" onClick={handlePorcentageNumbers}/>
+          <Button label="/" onClick={handleDivideNumbers}/>
         </Row>
         <Row>
           <Button label="7" onClick={() => handleAddNumber('7')}/>
           <Button label="8" onClick={() => handleAddNumber('8')}/>
           <Button label="9" onClick={() => handleAddNumber('9')}/>
-          <Button label="*" onClick={() => handleAddNumber('*')}/>
+          <Button label="*" onClick={handleTimesNumbers}/>
         </Row>
         <Row>
           <Button label="4" onClick={() => handleAddNumber('4')}/>
