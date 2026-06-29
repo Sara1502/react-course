@@ -1,7 +1,14 @@
+import {Header} from '../../components/Header'
+import background from '../../assets/background.png'
+
 const App = () => {
     return (
         <div className="App">
-            <h1>Hello DIO!</h1>
+            <Header />
+            <div className='conteudo'>
+                <img src={background} className='background' />
+
+            </div>
         </div>
     )
 }
