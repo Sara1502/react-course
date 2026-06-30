@@ -1,6 +1,7 @@
 import {Header} from '../../components/Header'
 import background from '../../assets/background.png'
 import profile from '../../assets/profile.png'
+import {ItemList} from '../../components/ItemList'
 
 import './style.css';
 
@@ -24,6 +25,12 @@ const App = () => {
                         </div>
                     </div>
                     <hr />
+                    <div>
+                        <h4 className='repositorio'>Repositórios</h4>
+                        <ItemList tite='teste' description='teste de descrição'></ItemList>
+                        <ItemList tite='teste' description='teste de descrição'></ItemList>
+                        <ItemList tite='teste' description='teste de descrição'></ItemList>
+                    </div>
                 </div>
             </div>
         </div>
