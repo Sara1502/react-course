@@ -1,4 +1,4 @@
-import ButtonContainer from './styles'
+import {ButtonContainer} from './styles'
 
 function Button(){
     return(
