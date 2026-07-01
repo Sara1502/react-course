@@ -1,5 +1,6 @@
 import gitLogo from '../assets/github.png';
-import {Container} from './styles';import {Input} from '../components/input';
+import {Container} from './styles';
+import Input from '../components/input/index';
 
 function App() {
     return (
