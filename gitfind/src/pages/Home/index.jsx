@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {Header} from '../../components/Header'
 import background from '../../assets/background.png'
-import profile from '../../assets/profile.png'
 import {ItemList} from '../../components/ItemList'
 
 import './style.css';
